@@ -1,0 +1,43 @@
+{
+  "name": "typescript18react_crud",
+  "version": "1.0.0",
+  "description": "Initial setup of the application created with TypeScript, React, React Router v6, useContext, and useReducer.",
+  "main": "index.tsx",
+  "scripts": {
+    "dev": "webpack serve --mode development",
+    "pro": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indigomx9/typescript18react_crud.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/indigomx9/typescript18react_crud/issues"
+  },
+  "homepage": "https://github.com/indigomx9/typescript18react_crud#readme",
+  "dependencies": {
+    "nanoid": "^3.3.1",
+    "react": "^18.0.0-rc.2",
+    "react-dom": "^18.0.0-rc.2",
+    "react-router-dom": "^6.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.23",
+    "@types/react": "^17.0.43",
+    "@types/react-dom": "^17.0.14",
+    "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.2.8",
+    "typescript": "^4.6.3",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  }
+}
+
+
