@@ -1,15 +1,17 @@
 import React from "react";
 import "./App.css";
 import { Main } from "../routes/Main";
+import { GlobalProvider } from "../global/GlobalState";
 
 export const App = (): JSX.Element => {
     return (
-        <React.Fragment>
-            <Main />
-        </React.Fragment>
+        <GlobalProvider>
+            <React.Fragment>
+                <Main />
+            </React.Fragment>
+        </GlobalProvider>
     );
 };
 
 
 
-// const URL = "https://book5-restapi.herokuapp.com/api";

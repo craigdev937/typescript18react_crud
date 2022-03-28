@@ -6,18 +6,25 @@ export interface IBook {
     first: string,
     last: string,
     age: number,
-    info: string
-};
-
-export interface IBookState {
-    books: IBook[],
+    info: string,
+    book: IBook
 };
 
 export interface IAction {
     type: actionTypes,
-    payload: {
-        book: IBook
-    }
+    payload: IBook
 };
+
+export interface IBookState {
+    books: IBook[],
+    getBooks?: () => Promise<void>,
+    createBook?: (payload: IBook) => Promise<void>,
+    updateBook?: (payload: IBook) => Promise<void>,
+    deleteBook?: (payload: IBook) => Promise<void>
+};
+
+
+
+
 
 
