@@ -23,22 +23,36 @@ type Props = {
 };
 
 const URL = "https://book5-restapi.herokuapp.com/api";
-export const GlobalContext = React.createContext(initialState);
+export const GlobalContext: React.Context<IBookState> = 
+    React.createContext(initialState);
 
 export const GlobalProvider = ({children}: Props) => {
     const [state, dispatch] = React.useReducer(BookReducer, initialState);
+
+    // function getBooks() {
+    //     const books = fetch(URL, {
+    //         method: "GET"
+    //     })
+    //     .then((res) => res.json())
+    //     .then((books) => books)
+    //     dispatch({
+    //         type: actionTypes.FETCH_ALL_BOOKS,
+    //         payload: books
+    //     })
+    // };
 
     async function getBooks() {
         const res = await fetch(URL);
         if (!res.ok) throw new Error(res.statusText);
         const books = await res.json();
+        console.log(books)
         dispatch({
             type: actionTypes.FETCH_ALL_BOOKS,
             payload: books
         });
     };
 
-    async function createBook(payload: IBook) {
+    async function createBook(payload: IBook): Promise<void> {
         const res = await fetch(URL, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -56,7 +70,7 @@ export const GlobalProvider = ({children}: Props) => {
         })
     };
 
-    async function updateBook(payload: IBook) {
+    async function updateBook(payload: IBook): Promise<void> {
         const res = await fetch(`${URL}/${payload._id}`, {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
@@ -74,7 +88,7 @@ export const GlobalProvider = ({children}: Props) => {
         })
     };
 
-    async function deleteBook(payload: IBook) {
+    async function deleteBook(payload: IBook): Promise<void> {
         const res = await fetch(`${URL}/${payload._id}`, {
             method: "DELETE"
         });

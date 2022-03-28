@@ -7,8 +7,9 @@ export const BookReducer =
         case actionTypes.FETCH_ALL_BOOKS: {
             return {
                 ...state,
+                // loading: false,
                 books: [...state.books, action.payload],
-            }
+            };
         };
 
         case actionTypes.CREATE_BOOK: {
@@ -39,7 +40,14 @@ export const BookReducer =
                     (book) => book._id !== 
                         action.payload.book._id)
             }
-        }
+        };
+
+        // case actionTypes.BOOK_ERROR: {
+        //     return {
+        //         ...state,
+        //         error: action.payload
+        //     }
+        // };
 
         default:
             return state;

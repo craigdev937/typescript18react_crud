@@ -1,10 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { GlobalContext } from "../global/GlobalState";
 
 export const Books = (): JSX.Element => {
+    const { books } = React.useContext(GlobalContext);
+
+    React.useEffect(() => {
+        books
+        console.log(books);
+    }, []);
+   
     return (
         <React.Fragment>
-            <h1>Books</h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint mollitia vero excepturi aliquid modi neque minus iusto quae quaerat maiores consectetur alias eius, illum ipsum magnam nobis? Ipsum, fugit et!</p>
+            {books.map((book) => (
+                <main key={book._id}>
+                    <h1>{book.title}</h1>
+                    <p>Author: {book.first} {book.last}</p>
+                    <p>Age: {book.age}</p>
+                    <p>Info: {book.info}</p>
+                </main>
+            ))}
         </React.Fragment>
     );
 };

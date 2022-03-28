@@ -10,7 +10,7 @@ export interface IBook {
     book: IBook
 };
 
-export interface IAction {
+export type IAction = {
     type: actionTypes,
     payload: IBook
 };
